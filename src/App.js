@@ -15,7 +15,7 @@ function App() {
       <Toaster position="top-center" reverseOrder={false} />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/customers" element={<Home />} />
           <Route path="/properties" element={<Properties />} />
           <Route path="/customers" element={<Customers />} />
           <Route path="/settings" element={<Settings />} />
