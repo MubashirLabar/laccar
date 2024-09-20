@@ -11,7 +11,7 @@ import Settings from "pages/settings";
 
 function App() {
   return (
-    <div className="w-full min-h-screen">
+    <div className="w-full min-h-screen bg-[#212121]">
       <Toaster position="top-center" reverseOrder={false} />
       <BrowserRouter>
         <Routes>

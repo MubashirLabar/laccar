@@ -1,73 +1,158 @@
+import { useState, useEffect } from "react";
 import { PlusIcon, TrashIcon } from "@heroicons/react/24/solid";
 import Layout from "components/layout";
 import { Table } from "components";
+import { getCustomerList } from "../../redux/axios";
+import { ImagePreviewModal } from "components/modals";
 
 export default function Customers() {
+  const [openImageModal, setOpenImageModal] = useState(false);
+
+  useEffect(() => {
+    const res = getCustomerList();
+    console.log("res...", res);
+  }, []);
+
   const data = [
     {
-      name: "Rwq",
-      first_name: "luz",
-      cin: "jgzztwe",
-      address: "Uhhcdwzibxw",
-      telephone: "5568854211",
-      permit: "755765322",
-      category: "New Customer",
-      photos: "",
-      create_at: "2024-06-04 10:40:10",
+      idClient: 21,
+      Nom: "fkfmf",
+      Prenom: "oooppp",
+      CIN: "h7kh8g",
+      Adresse: "fergergegegre",
+      Tel: "675765775",
+      Permis: "hrhrth",
+      category: "Trusted",
+      photo1: "tom-cruise-net-worth.jpg",
+      photo2: null,
+      photo3: null,
+      isBlacklisted: 0,
+      created_at: "2024-07-04 08:14:21",
+      last_modified_at: "2024-07-04 08:14:21",
+      deleted_at: null,
+      user_id: 7,
     },
     {
-      name: "testing",
-      first_name: "luz",
-      cin: "jgzztwe",
-      address: "Uhhcdwzibxw",
-      telephone: "5568854211",
-      permit: "755765322",
-      category: "New Customer",
-      photos: "",
-      create_at: "2024-06-04 10:40:10",
+      idClient: 18,
+      Nom: "wefwe",
+      Prenom: "wefwef",
+      CIN: "8787ee",
+      Adresse: "fsdfdsfsds",
+      Tel: "sdfsdfs",
+      Permis: "sdfsdf",
+      category: "Trusted",
+      photo1: "gettyimages-693134468.jpg",
+      photo2: null,
+      photo3: null,
+      isBlacklisted: 0,
+      created_at: "2024-06-27 17:25:42",
+      last_modified_at: "2024-06-27 17:25:42",
+      deleted_at: null,
+      user_id: 7,
     },
     {
-      name: "testing 2",
-      first_name: "luz",
-      cin: "jgzztwe",
-      address: "Uhhcdwzibxw",
-      telephone: "5568854211",
-      permit: "755765322",
+      idClient: 17,
+      Nom: "ui",
+      Prenom: "aw",
+      CIN: "lk9765",
+      Adresse: "8g676d676d7",
+      Tel: "876876876876",
+      Permis: "75765765",
+      category: "Unreliable",
+      photo1: "gettyimages-693134468.jpg",
+      photo2: null,
+      photo3: null,
+      isBlacklisted: 0,
+      created_at: "2024-06-23 14:24:04",
+      last_modified_at: "2024-06-23 14:24:04",
+      deleted_at: null,
+      user_id: 7,
+    },
+    {
+      idClient: 15,
+      Nom: "John",
+      Prenom: "Doe",
+      CIN: "12345678",
+      Adresse: "123 Main St",
+      Tel: "123-456-7890",
+      Permis: "AB12345",
+      category: "VIP",
+      photo1: "",
+      photo2: "",
+      photo3: "",
+      isBlacklisted: 0,
+      created_at: "2024-06-22 22:39:24",
+      last_modified_at: "2024-09-20 09:21:31",
+      deleted_at: null,
+      user_id: 7,
+    },
+    {
+      idClient: 14,
+      Nom: "Tester",
+      Prenom: "Testing",
+      CIN: "112233",
+      Adresse: "test address",
+      Tel: "1312312321322",
+      Permis: "asdf",
+      category: "Unreliable",
+      photo1: "1.jpg",
+      photo2: "2.jpg",
+      photo3: "1719090578.jpg",
+      isBlacklisted: 0,
+      created_at: "2024-06-22 21:09:49",
+      last_modified_at: "2024-07-14 15:05:00",
+      deleted_at: null,
+      user_id: 7,
+    },
+    {
+      idClient: 10,
+      Nom: "Rwq",
+      Prenom: "Iuz",
+      CIN: "Jgzztswe",
+      Adresse: "Uhhhcdwzibxw",
+      Tel: "5568854211",
+      Permis: "755765322",
       category: "New Customer",
-      photos: "",
-      create_at: "2024-06-04 10:40:10",
+      photo1: "cd5491e5-c919-4d5c-a250-ff84ccde4a4c.jpeg",
+      photo2: null,
+      photo3: null,
+      isBlacklisted: 0,
+      created_at: "2024-06-04 10:40:10",
+      last_modified_at: "2024-06-04 10:45:22",
+      deleted_at: null,
+      user_id: 7,
     },
   ];
 
   const columns = [
     {
       name: "Name",
-      selector: (row) => row.name || "N/A",
+      selector: (row) => row.Nom || "N/A",
     },
     {
       name: "First Name",
-      selector: (row) => row?.first_name || "N/A",
+      selector: (row) => row?.Prenom || "N/A",
     },
     {
       name: "CIN",
-      selector: (row) => row?.cin || "N/A",
+      selector: (row) => row?.CIN || "N/A",
     },
     {
       name: "Address",
-      selector: (row) => (row.address ? row.address : "-"),
+      selector: (row) => (row.Adresse ? row.Adresse : "-"),
       wrap: true,
     },
     {
       name: "Telephone",
-      selector: (row) => (row.telephone ? row.telephone : "-"),
+      selector: (row) => (row.Tel ? row.Tel : "-"),
     },
     {
       name: "Permit",
-      selector: (row) => row.permit,
+      selector: (row) => (row.Permis ? row.Permis : "-"),
     },
     {
       name: "Category",
-      selector: (row) => row.category,
+      selector: (row) => (row.category ? row.category : "-"),
       minWidth: "130px",
     },
     {
@@ -180,6 +265,11 @@ export default function Customers() {
           </div>
         </div>
       </div>
+      <ImagePreviewModal
+        open={openImageModal}
+        setOpen={setOpenImageModal}
+        image={""}
+      />
     </Layout>
   );
 }

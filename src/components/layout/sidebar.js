@@ -4,6 +4,9 @@ import {
   Cog6ToothIcon,
   ArrowLeftStartOnRectangleIcon,
   BuildingOffice2Icon,
+  ChartBarIcon,
+  BriefcaseIcon,
+  NoSymbolIcon,
 } from "@heroicons/react/24/solid";
 import { Link, useLocation } from "react-router-dom";
 
@@ -12,7 +15,7 @@ export const Sidebar = () => {
 
   const nav = [
     {
-      label: "Dashboard",
+      label: "Home",
       link: "/",
       icon: <Squares2X2Icon className="h-6 w-6" />,
     },
@@ -25,6 +28,21 @@ export const Sidebar = () => {
       label: "Customers",
       link: "/customers",
       icon: <UserGroupIcon className="h-6 w-6" />,
+    },
+    {
+      label: "Revenues",
+      link: "/revenues",
+      icon: <ChartBarIcon className="h-6 w-6" />,
+    },
+    {
+      label: "Reservations",
+      link: "/reservations",
+      icon: <BriefcaseIcon className="h-6 w-6" />,
+    },
+    {
+      label: "Blacklist",
+      link: "/blacklist",
+      icon: <NoSymbolIcon className="h-6 w-6" />,
     },
     {
       label: "Settings",
