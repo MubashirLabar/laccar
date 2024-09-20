@@ -10,7 +10,7 @@ export const getCustomerList = async () => {
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Headers":
             "Origin, X-Requested-With, Content-Type, Accept",
-          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjY4NTA0NTIsImV4cCI6MTc1ODM4NjQ1MiwidXNlcl9pZCI6IjcifQ.mULVEgVbvep8O67HF9kxkBITkTFvKLGissrSWApHqKY`,
+          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjY4NTYyMDIsImV4cCI6MTc1ODM5MjIwMiwidXNlcl9pZCI6IjcifQ.ZN4fvaFgpNzIkAyXJBoN2THxC7CLimgwJ3z2DNjd2J0`,
         },
       }
     );
