@@ -12,6 +12,7 @@ export default function Customers() {
   const [filteredData, setFilteredData] = useState([]);
   const [photos, setPhotos] = useState("");
   const [showReset, setShowReset] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
   const [filters, setFilters] = useState({
     name: "",
     firstName: "",
@@ -174,8 +175,6 @@ export default function Customers() {
     setShowReset(false);
   };
 
-  console.log("data...", data);
-
   return (
     <Layout>
       <div className="w-full flex flex-col gap-6 py-10 px-8">
@@ -193,8 +192,14 @@ export default function Customers() {
         ) : (
           <>
             <div className="w-full bg-[#3b3b3b] py-5 px-6 rounded-xl flex flex-col gap-5">
-              <div className="w-full flex items-center flex-wrap gap-4">
+              <div className="w-full grid grid-cols-2 gap-4">
                 <input
+                  placeholder="Search by name, cin, address, telephone or permis"
+                  value={searchInput}
+                  onChange={(e) => setSearchInput(e.target.value)}
+                  className="w-full h-[40px] border-[1px] border-solid border-transparent rounded-lg px-3 text-sm text-white bg-[#212121]"
+                />
+                {/* <input
                   name="name"
                   placeholder="Name"
                   value={filters.name}
@@ -235,15 +240,15 @@ export default function Customers() {
                   value={filters.permis}
                   onChange={handleFilterInput}
                   className="w-full max-w-[200px] h-[36px] border-[1px] border-solid border-gray-300 bg-transparent rounded-lg px-3 text-sm text-white"
-                />
+                /> */}
                 <input
                   name="category"
                   placeholder="Category"
                   value={filters.category}
                   onChange={handleFilterInput}
-                  className="w-full max-w-[200px] h-[36px] border-[1px] border-solid border-gray-300 bg-transparent rounded-lg px-3 text-sm text-white"
+                  className="w-full h-[40px] border-[1px] border-solid border-transparent rounded-lg px-3 text-sm text-white bg-[#212121]"
                 />
-                <input
+                {/* <input
                   name="created_at"
                   placeholder="Created At"
                   value={filters.created_at}
@@ -256,7 +261,7 @@ export default function Customers() {
                   value={filters.updated_at}
                   onChange={handleFilterInput}
                   className="w-full max-w-[200px] h-[36px] border-[1px] border-solid border-gray-300 bg-transparent rounded-lg px-3 text-sm text-white"
-                />
+                /> */}
               </div>
               <div className="flex items-center gap-2">
                 <button
